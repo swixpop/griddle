@@ -1,0 +1,108 @@
+{% import "_includes/forms" as forms %}
+<style>
+  .setting-is-disabled { font-size: 11px; font-style: italic; color: #999; }
+</style>
+
+<div class="field" id="color-field">
+  <div class="heading">
+    <label for="color">Color</label>
+		<p class="instructions">{{ "Set the color in a CSS friendly format. Defaults to #ff0000 (red)" | t }}</p>
+  </div>
+	<div class="input">
+		<input class="text" type="text" id="color" name="color" value="{% if config_settings.color is not null %}{{ config_settings.color }}{% else %}{{ settings.color }}{% endif %}"{% if config_settings.color is not null %} disabled="disabled"{% endif %}>
+    {% if config_settings.color is not null %}
+      <p class="setting-is-disabled">{{ "This setting has been configured in the config file." | t }}</p>
+    {% endif %}
+	</div>
+</div>
+
+<div class="field" id="opacity-field">
+  <div class="heading">
+    <label for="opacity">Opacity</label>
+		<p class="instructions">{{ "Set the opacity out of 100. Defaults to 10." | t }}</p>
+  </div>
+	<div class="input">
+		<input class="text" type="number" id="opacity" name="opacity" value="{% if config_settings.opacity is not null %}{{ config_settings.opacity }}{% else %}{{ settings.opacity }}{% endif %}"{% if config_settings.opacity is not null %} disabled="disabled"{% endif %}>
+    {% if config_settings.opacity is not null %}
+      <p class="setting-is-disabled">{{ "This setting has been configured in the config file." | t }}</p>
+    {% endif %}
+	</div>
+</div>
+
+<div class="field" id="columns-field">
+  <div class="heading">
+    <label for="columns">Number of columns</label>
+		<p class="instructions">{{ "Set the default number of columns for your grid" | t }}</p>
+  </div>
+	<div class="input">
+		<input class="text" type="number" id="columns" name="columns" value="{% if config_settings.columns is not null %}{{ config_settings.columns }}{% else %}{{ settings.columns }}{% endif %}"{% if config_settings.columns is not null %} disabled="disabled"{% endif %}>
+    {% if config_settings.columns is not null %}
+      <p class="setting-is-disabled">{{ "This setting has been configured in the config file." | t }}</p>
+    {% endif %}
+	</div>
+</div>
+
+<div class="field" id="gutter-field">
+  <div class="heading">
+    <label for="gutter">Gutter</label>
+		<p class="instructions">{{ "Set the default space between grid columns" | t }}</p>
+  </div>
+	<div class="input">
+		<input class="text" type="number" id="gutter" name="gutter" value="{% if config_settings.gutter is not null %}{{ config_settings.gutter }}{% else %}{{ settings.gutter }}{% endif %}"{% if config_settings.gutter is not null %} disabled="disabled"{% endif %}>
+    {% if config_settings.gutter is not null %}
+      <p class="setting-is-disabled">{{ "This setting has been configured in the config file." | t }}</p>
+    {% endif %}
+	</div>
+</div>
+
+<div class="field" id="containerPadding-field">
+  <div class="heading">
+    <label for="containerPadding">Outer margins</label>
+		<p class="instructions">{{ "Set the default outer margins of your grid container" | t }}</p>
+  </div>
+	<div class="input">
+		<input class="text" type="number" id="containerPadding" name="containerPadding" value="{% if config_settings.containerPadding is not null %}{{ config_settings.containerPadding }}{% else %}{{ settings.containerPadding }}{% endif %}"{% if config_settings.containerPadding is not null %} disabled="disabled"{% endif %}>
+    {% if config_settings.containerPadding is not null %}
+      <p class="setting-is-disabled">{{ "This setting has been configured in the config file." | t }}</p>
+    {% endif %}
+	</div>
+</div>
+
+<div class="field" id="maxWidth-field">
+  <div class="heading">
+    <label for="maxWidth">Max width</label>
+		<p class="instructions">{{ "Set the maximum width of your grid container" | t }}</p>
+  </div>
+	<div class="input">
+		<input class="text" type="number" id="maxWidth" name="maxWidth" value="{% if config_settings.maxWidth is not null %}{{ config_settings.maxWidth }}{% else %}{{ settings.maxWidth }}{% endif %}"{% if config_settings.maxWidth is not null %} disabled="disabled"{% endif %}>
+    {% if config_settings.maxWidth is not null %}
+      <p class="setting-is-disabled">{{ "This setting has been configured in the config file." | t }}</p>
+    {% endif %}
+	</div>
+</div>
+
+{{ forms.editableTableField({
+    label: 'Breakpoints',
+    instructions: 'Some instructions here',
+    id: 'breakpoints',
+    name: 'breakpoints',
+    cols: [
+        {
+            heading : 'Breakpoint',
+            type: 'singleline',
+        },
+        {
+            heading : 'Gutter',
+            type: 'singleline'
+        },
+        {
+            heading : 'Outer margins',
+            type: 'singleline'
+        },
+        {
+            heading : 'Columns',
+            type: 'singleline'
+        },
+    ],
+    rows: settings['breakpoints']
+}) }}
