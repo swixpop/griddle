@@ -16,28 +16,17 @@ namespace Craft;
 
 class GriddleService extends BaseApplicationComponent
 {
-    /**
-     * This function can literally be anything you want, and you can have as many service functions as you want
-     *
-     * From any other plugin file, call it like this:
-     *
-     *     craft()->griddle->exampleService()
-     */
     var $settings = null;
     var $styles = '<style>';
     var $script = '<script>';
-    var $globalGutter = 0;
-    var $globalColumns = 12;
     var $output = '';
-    var $maxPadding = null;
-    var $maxGutter = null;
 
     public function fry()
     {
         $this->styles .= '.griddle-grid{top:0;position:fixed;z-index:9999999999;pointer-events:none;height:100%;}';
         $this->styles .= '.griddle-grid-hidden{display:none;}';
         $this->styles .= '.griddle-inner{position:relative;pointer-events:none;height:100%;width:100%;' . (($this->getSetting('maxWidth') !== null) ? ('max-width:' . ($this->getSetting('maxWidth') + ($this->getSetting('gutter'))) . 'px;'):'') .  'margin:0 auto;}';
-        $this->styles .= '.griddle-column{float:left;opacity:'.($this->getSetting('opacity')/100).';height:100vh;}';
+        $this->styles .= '.griddle-column{float:left;opacity:'.($this->getSetting('opacity')/100).';height:100vh;box-sizing:border-box;}';
 
 
         $this->colStyle(null);
