@@ -51,8 +51,6 @@ Todos:
 
 ## Griddle Changelog
 
-### 1.0.0 -- 2017.05.23
-
-* Initial release
+See [releases.json](https://raw.githubusercontent.com/swixpop/griddle/master/releases.json)
 
 Brought to you by [Isaac Gray](http://isaacgray.me) and [Værsågod](https://www.vaersaagod.no/)
