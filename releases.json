@@ -1,5 +1,13 @@
 [
     {
+        "version": "1.0.1",
+        "downloadUrl": "https://github.com/swixpop/griddle/archive/master.zip",
+        "date": "2017-05-24T8:36:00+02:00",
+        "notes": [
+            "[Fixed] Set box-sizing on grid columns"
+        ]
+    },
+    {
         "version": "1.0.0",
         "downloadUrl": "https://github.com/swixpop/griddle/archive/master.zip",
         "date": "2017-05-23T12:29:10.050Z",
