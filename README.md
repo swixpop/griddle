@@ -31,9 +31,15 @@ If you want to only show it in your development environment you can add a griddl
 {% endif %}
 ```
 
-To toggle the grid on and off while viewing a page you can use `alt + g`.
+To toggle the grid on and off while viewing a page you can use `alt + g`. To toggle additional guide lines (gutters, outer margins) you can use `alt + m`.
 
 **IMPORTANT: You should make sure to add some sort of environment config check so that Griddle doesn't show on your production sites**
+
+You can also check if the plugin is installed to avoid twig errors if you choose to uninstall the plugin but not remove the markup.
+
+```
+{{ craft.griddle.cake() ?? null | raw }}
+```
 
 ### Grid Settings
 
