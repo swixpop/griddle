@@ -3,6 +3,12 @@
   .setting-is-disabled { font-size: 11px; font-style: italic; color: #999; }
 </style>
 
+<h1>Instructions</h1>
+<h2>Configuration</h2>
+<p>Use the fields below to configure the grid settings for you project.</p>
+<h2>Show/hide the grid</h2>
+<p>You can toggle the grid on and off by pressing <code style="background:rgba(0,0,0,0.05);padding: 2px 5px;">alt + g</code>. You can toggle additional guide lines (gutters, outer margins) by pressing <code style="background:rgba(0,0,0,0.05);padding: 2px 5px;">alt + m</code>.</p>
+<h1>Settings</h1>
 <div class="field" id="color-field">
   <div class="heading">
     <label for="color">Color</label>
@@ -83,7 +89,7 @@
 
 {{ forms.editableTableField({
     label: 'Breakpoints',
-    instructions: 'Some instructions here',
+    instructions: 'Configure different grid sizes at different breakpoints. Fields left blank will default to the settings above.',
     id: 'breakpoints',
     name: 'breakpoints',
     cols: [
